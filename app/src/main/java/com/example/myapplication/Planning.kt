@@ -19,18 +19,20 @@ class Planning : AppCompatActivity() {
         val next=findViewById<Button>(R.id.next_plan)
         val getname=findViewById<EditText>(R.id.getname)
 
-        //calendar.setOnDateChangeListener(){};
         next.setOnClickListener(){
             var startdate= SimpleDateFormat("dd/MM/yyyy").format(calendar.date)
             var tripname=getname.text
             Toast.makeText(applicationContext,"Saved "+startdate+" "+tripname,Toast.LENGTH_LONG).show()
+            val intent = Intent(applicationContext, activity_planning2::class.java)
+            startActivity(intent)
         }
 
-        val cancel=findViewById<ImageButton>(R.id.cancelplan)
-        cancelplan.setOnClickListener(){
+        val cancel=findViewById<ImageView>(R.id.cancelplan)
+        cancel.setOnClickListener(){
             val intent = Intent(applicationContext, MainActivity::class.java)
             startActivity(intent)
         }
+
     }
 }
 

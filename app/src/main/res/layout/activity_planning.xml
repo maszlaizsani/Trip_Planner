@@ -5,13 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
+    android:fitsSystemWindows="true"
     tools:context=".Planning">
 
     <EditText
         android:id="@+id/getname"
         android:layout_width="336dp"
         android:layout_height="48dp"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="128dp"
         android:backgroundTint="#000000"
         android:backgroundTintMode="src_atop"
         android:ems="10"
@@ -36,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="72dp"
         android:text="@string/add_start_date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/getname" />
@@ -52,27 +53,44 @@
 
     <Button
         android:id="@+id/next_plan"
-        android:layout_width="258dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="100dp"
-        android:backgroundTint="#527FA5"
-        android:fontFamily="@font/alice"
+        android:layout_width="280dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="56dp"
+        android:backgroundTint="@color/default_blue"
+        android:fontFamily="@font/ubuntu"
         android:text="Next"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:cornerRadius="35px"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calendarView"
         app:rippleColor="@color/cardview_shadow_end_color" />
 
-    <ImageButton
-        android:id="@+id/cancelplan"
+    <TextView
+        android:id="@+id/plan_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#FFFFFF"
-        android:tint="@color/deblue"
-        app:srcCompat="@android:drawable/ic_menu_revert"
-        tools:layout_editor_absoluteX="18dp"
-        tools:layout_editor_absoluteY="19dp" />
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/ubuntu"
+        android:text="Create plan"
+        android:textColor="#757575"
+        android:textSize="21sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/cancelplan"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/arrow_1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".activity_planning2"
+            android:exported="true" />
+        <activity
             android:name=".Planning"
             android:exported="true" />
         <activity
