@@ -13,11 +13,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+    //--------------------------Button IDs-------------------------------
         val startplan=findViewById<Button>(R.id.button_newtrip);
 
+    //--------------------------New plan button--------------------------
         startplan.setOnClickListener(){
             val intent = Intent(applicationContext, Planning::class.java)
             startActivity(intent)
         }
+    //-------------------------------------------------------------------
     }
 }

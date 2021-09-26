@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="140dp"
         android:layout_marginTop="4dp"
-        android:text="Romantic"
+        android:text="Exploration and hiking"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
 
@@ -98,7 +98,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="56dp"
         android:fontFamily="@font/ubuntu"
-        android:text="Choose category"
+        android:text="Choose categories"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/plan_header" />
 
@@ -138,9 +138,32 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="36dp"
-        android:text="Destination"
+        android:text="Destination country"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox3" />
+
+    <Spinner
+        android:id="@+id/dropdownlist"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/dropdown"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <ImageView
+        android:id="@+id/add_destination"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dropdownlist"
+        app:srcCompat="@drawable/_115237_add_plus_icon__1_" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
