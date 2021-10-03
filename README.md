@@ -1,1 +1,11 @@
-# Trip_Planner
+# Trip Planner
+
+### About
+A trip planner application for android devices. 
+Make daily schedules and save activities you wouldn't want to miss.
+***
+* Choose countries you will visit
+* Save your departure and arrival times
+* Find acitvity recommendations for each city
+* Add places of interest
+* Save your plans for later
