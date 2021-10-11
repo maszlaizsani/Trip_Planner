@@ -36,13 +36,13 @@
         app:rippleColor="@color/cardview_shadow_end_color" />
 
     <Button
-        android:id="@+id/button_upcomingtrips"
+        android:id="@+id/button_mytrips"
         android:layout_width="280dp"
         android:layout_height="60dp"
         android:layout_marginTop="28dp"
         android:backgroundTint="#FFFFFF"
         android:fontFamily="@font/ubuntu"
-        android:text="Upcoming"
+        android:text="My plans"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#207A7A"
         android:textSize="18sp"
@@ -72,13 +72,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button_Pastjourneys"
+        android:id="@+id/button_countdown"
         android:layout_width="280dp"
         android:layout_height="60dp"
         android:layout_marginTop="132dp"
         android:backgroundTint="@color/default_blue"
         android:fontFamily="@font/ubuntu"
-        android:text="Past journeys"
+        android:text="Countdown"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
@@ -86,7 +86,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_upcomingtrips"
+        app:layout_constraintTop_toBottomOf="@+id/button_mytrips"
         app:rippleColor="@color/cardview_shadow_end_color" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

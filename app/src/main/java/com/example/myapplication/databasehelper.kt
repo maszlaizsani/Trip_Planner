@@ -1,45 +1,38 @@
-package com.example.myapplication
-
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import android.provider.BaseColumns
+import android.widget.Toast
+import com.example.myapplication.Trip
 
-class databasehelper {
-    object FeedReaderContract {
-        // Table contents are grouped together in an anonymous object.
-        object FeedEntry : BaseColumns {
-            const val TABLE_NAME = "countries"
-            const val COLUMN_NAME = "country_name"
-        }
-
-        private const val SQL_CREATE_ENTRIES =
-            "CREATE TABLE ${FeedEntry.TABLE_NAME} (" +
-                    "${BaseColumns._ID} INTEGER PRIMARY KEY," +
-                    "${FeedEntry.COLUMN_NAME} TEXT,"
-
-        private const val SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS ${FeedEntry.TABLE_NAME}"
-
-        class FeedReaderDbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
-            override fun onCreate(db: SQLiteDatabase) {
-                db.execSQL(SQL_CREATE_ENTRIES)
-            }
-            override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-                // This database is only a cache for online data, so its upgrade policy is
-                // to simply to discard the data and start over
-                db.execSQL(SQL_DELETE_ENTRIES)
-                onCreate(db)
-            }
-            override fun onDowngrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-                onUpgrade(db, oldVersion, newVersion)
-            }
-            companion object {
-                // If you change the database schema, you must increment the database version.
-                const val DATABASE_VERSION = 1
-                const val DATABASE_NAME = "FeedReader.db"
-            }
-        }
+class myDBhelper (context:Context) : SQLiteOpenHelper (context, "DATABASE", null,1){
+    override fun onCreate (db: SQLiteDatabase?) {
+        db?.execSQL("CREATE TABLE IF NOT EXISTS TRIPS (tripID INTEGER PRIMARY KEY AUTOINCREMENT, tripNAME TEXT, destination TEXT)")
+        //db?.execSQL("INSERT INTO TRIPS (tripNAME, destination) VALUES ('testname', 'testdestination')")
     }
 
+    override fun onUpgrade(p0: SQLiteDatabase?, p1: Int, p2: Int) {
+        TODO("Not yet implemented")
+    }
 
+    fun getTrips(myCtx: Context) : ArrayList<Trip> {
+        val qry= "SELECT * FROM TRIPS"
+        val db =this.readableDatabase
+        val cursor=db.rawQuery(qry,null)
+        val trips=ArrayList<Trip>()
+
+        if (cursor.count==0)
+            Toast.makeText(myCtx,"No records found!", Toast.LENGTH_SHORT).show()
+        else {
+            while (cursor.moveToNext()) {
+                val trip = Trip()
+                trip.tripID = cursor.getInt(0)
+                trip.tripNAME = cursor.getString(1)
+                trip.destination=cursor.getString(2)
+                trips.add(trip)
+            }
+        }
+        cursor.close()
+        db.close()
+        return trips
+    }
 }
