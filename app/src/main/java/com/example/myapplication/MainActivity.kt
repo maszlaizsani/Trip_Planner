@@ -15,17 +15,23 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         //--------------------------Button IDs-------------------------------
-        val startplan = findViewById<Button>(R.id.button_newtrip);
+        val startplan = findViewById<Button>(R.id.button_newtrip)
         val mytrips=findViewById<Button>(R.id.button_mytrips)
+        val countdown=findViewById<Button>(R.id.button_countdown)
 
         //--------------------------New plan button--------------------------
         startplan.setOnClickListener() {
             val intent = Intent(applicationContext, activity_planning::class.java)
             startActivity(intent)
         }
-        //-------------------------------------------------------------------
+        //--------------------------My trips button--------------------------
         mytrips.setOnClickListener(){
             val intent = Intent(applicationContext, MyTrips::class.java)
+            startActivity(intent)
+        }
+        //--------------------------Countdown button--------------------------
+        countdown.setOnClickListener(){
+            val intent = Intent(applicationContext, countdown_activity::class.java)
             startActivity(intent)
         }
     }

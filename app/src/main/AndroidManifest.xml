@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".countdown_activity"
+            android:exported="true" />
+        <activity
             android:name=".MyTrips"
             android:exported="true" />
         <activity

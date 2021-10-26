@@ -4,4 +4,8 @@
     <string name="name">Name</string>
     <string name="add_start_date">Add start date</string>
     <string name="Plan_new_trip">Plan new trip</string>
+    <string name="set_countdown">Set countdown</string>
+    <string name="days_remaining">days remaining!</string>
+    <string name="back_arrow">back_arrow</string>
+
 </resources>
