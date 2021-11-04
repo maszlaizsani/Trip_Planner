@@ -13,9 +13,6 @@
             android:name=".countdown_activity"
             android:exported="true" />
         <activity
-            android:name=".MyTrips"
-            android:exported="true" />
-        <activity
             android:name=".activity_planning"
             android:exported="true" />
         <activity

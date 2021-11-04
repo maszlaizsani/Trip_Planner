@@ -4,29 +4,36 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat.startActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import myDBhelper
 
 
 class MainActivity : AppCompatActivity() {
+
+    companion object {
+        lateinit var mydbhelper: myDBhelper
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        MainActivity.mydbhelper =myDBhelper(this)
+        viewPlans()
+
         //--------------------------Button IDs-------------------------------
-        val startplan = findViewById<Button>(R.id.button_newtrip)
-        val mytrips=findViewById<Button>(R.id.button_mytrips)
-        val countdown=findViewById<Button>(R.id.button_countdown)
+        val startplan = findViewById<ImageView>(R.id.button_newtrip)
+        val settings=findViewById<ImageView>(R.id.button_settings)
+        val countdown=findViewById<ImageView>(R.id.button_countdown)
 
         //--------------------------New plan button--------------------------
         startplan.setOnClickListener() {
             val intent = Intent(applicationContext, activity_planning::class.java)
-            startActivity(intent)
-        }
-        //--------------------------My trips button--------------------------
-        mytrips.setOnClickListener(){
-            val intent = Intent(applicationContext, MyTrips::class.java)
             startActivity(intent)
         }
         //--------------------------Countdown button--------------------------
@@ -34,5 +41,13 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(applicationContext, countdown_activity::class.java)
             startActivity(intent)
         }
+    }
+
+    fun viewPlans(){
+        val planList: ArrayList<Trip> = MainActivity.mydbhelper.getTrips(this)
+
+        val rView=findViewById<RecyclerView>(R.id.recycler)
+        rView.layoutManager= LinearLayoutManager(this, RecyclerView.VERTICAL,false) as RecyclerView.LayoutManager
+        rView.adapter=RecyclerAdapter(this,planList)
     }
 }

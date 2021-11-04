@@ -14,6 +14,11 @@ class activity_planning : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_planning)
 
+
+        //------------------------------Variables for date picking-----------------------------
+
+        //TODO
+
         //------------------------------Back and next button-----------------------------------
         val cancel=findViewById<ImageView>(R.id.cancelplan)
         cancel.setOnClickListener(){
