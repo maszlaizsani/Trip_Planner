@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_view"
     android:layout_margin="3dp"
-    app:cardBackgroundColor="@color/default_blue"
+    app:cardBackgroundColor="@color/subtleblue"
     app:cardCornerRadius="18dp"
     app:cardElevation="3dp"
     app:contentPadding="2dp">
@@ -26,7 +26,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/open_sans"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/default_blue"
             android:textSize="20sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -38,7 +38,7 @@
             android:layout_marginStart="60dp"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/open_sans"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/default_blue"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/itemtitle" />
 
@@ -59,7 +59,7 @@
             android:layout_marginStart="60dp"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/open_sans"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/default_blue"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/destinaton" />
 

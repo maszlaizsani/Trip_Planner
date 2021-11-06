@@ -2,12 +2,21 @@ package com.example.myapplication
 
 import android.content.ContentValues
 import android.content.Intent
+import android.icu.text.SimpleDateFormat
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import com.google.android.material.datepicker.MaterialDatePicker
+import kotlinx.android.synthetic.main.activity_planning.*
+import kotlinx.android.synthetic.main.card_layout.*
 import myDBhelper
+import java.sql.Time
+import java.time.LocalDate
+import java.util.*
 
+var startDate: Long = 0
+var endDate: Long = 0
 
 class activity_planning : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,7 +26,11 @@ class activity_planning : AppCompatActivity() {
 
         //------------------------------Variables for date picking-----------------------------
 
-        //TODO
+        val selectdate=findViewById<ImageView>(R.id.selectdate)
+
+        selectdate.setOnClickListener(){
+            buildDatePicker();
+        }
 
         //------------------------------Back and next button-----------------------------------
         val cancel=findViewById<ImageView>(R.id.cancelplan)
@@ -71,6 +84,8 @@ class activity_planning : AppCompatActivity() {
             else {
                 cv.put("tripNAME", getname.text.toString())
                 cv.put("destination", spinner1.selectedItem.toString())
+                cv.put("tripStartDate", startDate)
+                cv.put("tripEndDate", endDate)
                 db.insert("TRIPS", null, cv)
                 Toast.makeText(this,"Saved plan",Toast.LENGTH_SHORT).show()
                 val intent = Intent(applicationContext, MainActivity::class.java)
@@ -79,4 +94,25 @@ class activity_planning : AppCompatActivity() {
         }
     }
 
+    //---------------------------------Date picker and converter--------------------------------
+    fun buildDatePicker(){
+        val dateRangePicker=MaterialDatePicker.Builder
+            .dateRangePicker()
+            .setTitleText("Select date")
+            .build()
+
+        dateRangePicker.show(supportFragmentManager, "date_range_picker")
+
+        dateRangePicker.addOnPositiveButtonClickListener { date ->
+            startDate=date.first
+            endDate=date.second
+            selecteddate.setText(convertLongToTime(startDate) + " - " + convertLongToTime(endDate))
+        }
+    }
+
+    fun convertLongToTime(time: Long): String {
+        val date = Date(time)
+        val format = SimpleDateFormat("dd.MM.yyyy")
+        return format.format(date)
+    }
 }

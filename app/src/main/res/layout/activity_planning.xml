@@ -38,9 +38,9 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="60dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -79,7 +79,7 @@
                 android:id="@+id/next_plan"
                 android:layout_width="280dp"
                 android:layout_height="60dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="30dp"
                 android:backgroundTint="@color/default_blue"
                 android:fontFamily="@font/open_sans"
                 android:text="@string/next"
@@ -88,8 +88,9 @@
                 android:textSize="18sp"
                 app:cornerRadius="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.539"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dropdownlist3"
+                app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine"
                 app:rippleColor="@color/cardview_shadow_end_color" />
 
             <Spinner
@@ -124,11 +125,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="36dp"
                 android:fontFamily="@font/open_sans"
                 android:text="@string/destination_country"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/checkBox3" />
+
+            <TextView
+                android:id="@+id/noteslabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/open_sans"
+                android:text="Add notes"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dropdownlist3" />
 
             <ImageView
                 android:id="@+id/add_destination2"
@@ -184,11 +196,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="28dp"
                 android:fontFamily="@font/open_sans"
                 android:text="@string/choose_categories"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/calendarview" />
+                app:layout_constraintTop_toBottomOf="@+id/selecteddate" />
 
             <CheckBox
                 android:id="@+id/checkBox5"
@@ -252,20 +264,20 @@
                 android:layout_width="132dp"
                 android:layout_height="19dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/open_sans"
                 android:text="@string/name_your_plan"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/calendarlabel"
-                android:layout_width="132dp"
-                android:layout_height="19dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="16dp"
+                android:id="@+id/datelabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
                 android:fontFamily="@font/open_sans"
-                android:text="Add start date"
+                android:text="Select start and end date"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/getname" />
 
@@ -285,17 +297,39 @@
                 app:layout_constraintTop_toBottomOf="@+id/planName"
                 tools:ignore="SpeakableTextPresentCheck" />
 
-            <CalendarView
-                android:id="@+id/calendarview"
+            <TextView
+                android:id="@+id/selecteddate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:background="@color/default_blue"
-                android:backgroundTint="#FFFFFF"
+                android:layout_marginTop="16dp"
+                android:text="not selected  - not selected"
+                android:textColor="#C8C8C8"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.488"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/calendarlabel" />
+                app:layout_constraintTop_toBottomOf="@+id/datelabel" />
+
+            <ImageView
+                android:id="@+id/selectdate"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.267"
+                app:layout_constraintStart_toEndOf="@+id/selecteddate"
+                app:layout_constraintTop_toBottomOf="@+id/getname"
+                app:srcCompat="@drawable/calendaricon" />
+
+            <EditText
+                android:id="@+id/editTextTextMultiLine"
+                android:layout_width="350dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/noteslabel" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
