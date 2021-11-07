@@ -3,7 +3,7 @@
     <string name="name_your_plan">Name your plan</string>
     <string name="name">Name</string>
     <string name="add_start_date">Add start date</string>
-    <string name="days_remaining">days remaining!</string>
+    <string name="days_remaining_until">days remaining until</string>
     <string name="back_arrow">back_arrow</string>
     <string name="my_plans">My plans</string>
     <string name="trip_planner">Trip Planner</string>
@@ -20,4 +20,12 @@
     <string name="choose_categories">Choose categories</string>
     <string name="friends">Friends</string>
     <string name="cancelarrow">cancelarrow</string>
+    <string name="searchbar">searchbar</string>
+    <string name="countdownicon">countdownicon</string>
+    <string name="addplanicon">addplanicon</string>
+    <string name="search">Search</string>
+    <string name="exploreicon">exploreicon</string>
+    <string name="your_tripname">your tripname</string>
+    <string name="settings">settings</string>
+    <string name="reminderbell">reminderbell</string>
 </resources>

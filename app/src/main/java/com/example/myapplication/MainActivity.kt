@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         //--------------------------Button IDs-------------------------------
         val startplan = findViewById<ImageView>(R.id.button_newtrip)
-        val settings=findViewById<ImageView>(R.id.button_settings)
+        val explore=findViewById<ImageView>(R.id.explore_button)
         val countdown=findViewById<ImageView>(R.id.button_countdown)
 
         //--------------------------New plan button--------------------------
