@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".countdown_activity">
+    tools:context=".CountdownActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -16,7 +16,7 @@
         app:srcCompat="@drawable/background" />
 
     <ImageView
-        android:id="@+id/cancelplan"
+        android:id="@+id/cancelPlan"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="16dp"

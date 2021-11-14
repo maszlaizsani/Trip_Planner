@@ -10,10 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
-            android:name=".countdown_activity"
+            android:name=".ExploreActivity"
             android:exported="true" />
         <activity
-            android:name=".activity_planning"
+            android:name=".CountdownActivity"
+            android:exported="true" />
+        <activity
+            android:name=".PlanningActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
