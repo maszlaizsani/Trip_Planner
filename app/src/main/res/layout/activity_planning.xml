@@ -46,34 +46,148 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="20dp">
+            android:layout_height="wrap_content">
 
-            <CheckBox
-                android:id="@+id/checkBox"
+            <TextView
+                android:id="@+id/dateLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="72dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/open_sans"
-                android:text="@string/road_trip"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.712"
-                app:layout_constraintStart_toEndOf="@+id/checkBox4"
-                app:layout_constraintTop_toBottomOf="@+id/categories_label" />
-
-            <Spinner
-                android:id="@+id/dropdownlist2"
-                android:layout_width="370dp"
-                android:layout_height="43dp"
-                android:layout_marginTop="24dp"
-                android:background="@drawable/component_1"
-                android:fontFamily="@font/open_sans"
-                android:spinnerMode="dropdown"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.478"
+                android:text="Select start and end date"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dropdownlist1" />
+                app:layout_constraintTop_toBottomOf="@+id/getName" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/date_card"
+                android:layout_width="365dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                app:cardBackgroundColor="@color/subtleblue"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="3dp"
+                app:contentPadding="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dateLabel">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp">
+
+                    <TextView
+                        android:id="@+id/selectedDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="24dp"
+                        android:text="not selected  - not selected"
+                        android:textColor="@color/default_blue"
+                        app:layout_constraintEnd_toStartOf="@id/selectDate"
+                        app:layout_constraintHorizontal_bias="0.695"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/selectDate"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="52dp"
+                        android:src="@drawable/calendaricon"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/spinner_card"
+                android:layout_width="365dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                app:cardBackgroundColor="@color/subtleblue"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="3dp"
+                app:contentPadding="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/destinationlabel">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp">
+
+                <Spinner
+                    android:id="@+id/dropdownlist2"
+                    android:layout_width="340dp"
+                    android:layout_height="43dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/dropdown_final"
+                    android:fontFamily="@font/open_sans"
+                    android:spinnerMode="dropdown"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.478"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/dropdownlist1" />
+
+                <Spinner
+                    android:id="@+id/dropdownlist1"
+                    style="@android:style/Widget.DeviceDefault.Light.Spinner"
+                    android:layout_width="340dp"
+                    android:layout_height="43dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/dropdown_final"
+                    android:fontFamily="@font/open_sans"
+                    android:spinnerMode="dropdown"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.478"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Spinner
+                    android:id="@+id/dropdownlist3"
+                    android:layout_width="340dp"
+                    android:layout_height="43dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/dropdown_final"
+                    android:fontFamily="@font/open_sans"
+                    android:spinnerMode="dropdown"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.478"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/dropdownlist2" />
+
+                <ImageView
+                    android:id="@+id/add_destination2"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="24dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/dropdownlist2"
+                    app:srcCompat="@drawable/plus"
+                    tools:ignore="ImageContrastCheck" />
+
+                <ImageView
+                    android:id="@+id/add_destination1"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="24dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/dropdownlist1"
+                    app:srcCompat="@drawable/plus"
+                    tools:ignore="ImageContrastCheck" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
 
             <Button
                 android:id="@+id/next_plan"
@@ -90,46 +204,20 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.539"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine"
+                app:layout_constraintTop_toBottomOf="@+id/note_card"
                 app:rippleColor="@color/cardview_shadow_end_color" />
 
-            <Spinner
-                android:id="@+id/dropdownlist1"
-                style="@android:style/Widget.DeviceDefault.Light.Spinner"
-                android:layout_width="370dp"
-                android:layout_height="43dp"
-                android:layout_marginTop="12dp"
-                android:background="@drawable/component_1"
-                android:fontFamily="@font/open_sans"
-                android:spinnerMode="dropdown"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.478"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-            <Spinner
-                android:id="@+id/dropdownlist3"
-                android:layout_width="370dp"
-                android:layout_height="43dp"
-                android:layout_marginTop="24dp"
-                android:background="@drawable/component_1"
-                android:fontFamily="@font/open_sans"
-                android:spinnerMode="dropdown"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.478"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dropdownlist2" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/destinationlabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="36dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="28dp"
                 android:fontFamily="@font/open_sans"
                 android:text="@string/destination_country"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox3" />
+                app:layout_constraintTop_toBottomOf="@+id/checkbox_card" />
 
             <TextView
                 android:id="@+id/notesLabel"
@@ -140,56 +228,7 @@
                 android:fontFamily="@font/open_sans"
                 android:text="Add notes"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dropdownlist3" />
-
-            <ImageView
-                android:id="@+id/add_destination2"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="24dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dropdownlist2"
-                app:srcCompat="@drawable/plus"
-                tools:ignore="ImageContrastCheck" />
-
-            <ImageView
-                android:id="@+id/add_destination1"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="24dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dropdownlist1"
-                app:srcCompat="@drawable/plus"
-                tools:ignore="ImageContrastCheck" />
-
-            <CheckBox
-                android:id="@+id/checkBox8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/open_sans"
-                android:text="@string/solo"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.49"
-                app:layout_constraintStart_toEndOf="@+id/checkBox4"
-                app:layout_constraintTop_toBottomOf="@+id/categories_label" />
-
-            <CheckBox
-                android:id="@+id/checkBox2"
-                style="@android:style/Widget.DeviceDefault.Light.CompoundButton.CheckBox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/open_sans"
-                android:text="@string/friends"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox1" />
+                app:layout_constraintTop_toBottomOf="@+id/spinner_card" />
 
             <TextView
                 android:id="@+id/categories_label"
@@ -200,64 +239,136 @@
                 android:fontFamily="@font/open_sans"
                 android:text="@string/choose_categories"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/selectedDate" />
+                app:layout_constraintTop_toBottomOf="@+id/date_card" />
 
-            <CheckBox
-                android:id="@+id/checkBox5"
-                android:layout_width="wrap_content"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/checkbox_card"
+                android:layout_width="365dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="140dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/open_sans"
-                android:text="@string/business"
+                android:layout_margin="3dp"
+                android:layout_marginTop="125dp"
+                app:cardBackgroundColor="@color/subtleblue"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="3dp"
+                app:contentPadding="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox1" />
+                app:layout_constraintTop_toBottomOf="@id/categories_label">
 
-            <CheckBox
-                android:id="@+id/checkBox4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="140dp"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/open_sans"
-                android:text="@string/vacation"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/categories_label" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            <CheckBox
-                android:id="@+id/checkBox3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/open_sans"
-                android:text="@string/honeymoon"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
+                    <CheckBox
+                        android:id="@+id/checkBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/open_sans"
+                        android:text="@string/road_trip"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="@color/default_blue"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.888"
+                        app:layout_constraintStart_toEndOf="@+id/checkBox5"
+                        app:layout_constraintTop_toBottomOf="@+id/checkBox8" />
 
-            <CheckBox
-                android:id="@+id/checkBox1"
-                style="@android:style/Widget.DeviceDefault.Light.CompoundButton.CheckBox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/open_sans"
-                android:text="@string/family"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/categories_label" />
+                    <CheckBox
+                        android:id="@+id/checkBox8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/open_sans"
+                        android:text="@string/solo"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="@color/default_blue"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.49"
+                        app:layout_constraintStart_toEndOf="@+id/checkBox4"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-            <CheckBox
-                android:id="@+id/checkBox6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="140dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/open_sans"
-                android:text="@string/exploration_and_hiking"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
+                    <CheckBox
+                        android:id="@+id/checkBox2"
+                        style="@android:style/Widget.DeviceDefault.Light.CompoundButton.CheckBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/open_sans"
+                        android:text="@string/friends"
+                        android:textColor="@color/default_blue"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/checkBox1" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="44dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/open_sans"
+                        android:text="@string/business"
+                        android:textColor="@color/default_blue"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@+id/checkBox2"
+                        app:layout_constraintTop_toBottomOf="@+id/checkBox4" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="48dp"
+                        android:fontFamily="@font/open_sans"
+                        android:text="@string/vacation"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="@color/default_blue"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@+id/checkBox1"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/open_sans"
+                        android:text="@string/honeymoon"
+                        android:textColor="@color/default_blue"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox1"
+                        style="@android:style/Widget.DeviceDefault.Light.CompoundButton.CheckBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:fontFamily="@font/open_sans"
+                        android:text="@string/family"
+                        android:textColor="@color/default_blue"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="140dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/open_sans"
+                        android:text="@string/exploration_and_hiking"
+                        android:textColor="@color/default_blue"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/checkBox5" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/planName"
@@ -269,17 +380,6 @@
                 android:text="@string/name_your_plan"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/dateLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
-                android:fontFamily="@font/open_sans"
-                android:text="Select start and end date"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/getName" />
 
             <EditText
                 android:id="@+id/getName"
@@ -297,39 +397,38 @@
                 app:layout_constraintTop_toBottomOf="@+id/planName"
                 tools:ignore="SpeakableTextPresentCheck" />
 
-            <TextView
-                android:id="@+id/selectedDate"
-                android:layout_width="wrap_content"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/note_card"
+                android:layout_width="365dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="not selected  - not selected"
-                android:textColor="#C8C8C8"
+                android:layout_margin="3dp"
+                android:layout_marginTop="10dp"
+                app:cardBackgroundColor="@color/subtleblue"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="3dp"
+                app:contentPadding="2dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dateLabel" />
+                app:layout_constraintTop_toBottomOf="@+id/notesLabel">
 
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/relativeLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="117dp"
+                    android:layout_marginBottom="8dp"
+                    android:padding="6dp" />
 
-            <EditText
-                android:id="@+id/editTextTextMultiLine"
-                android:layout_width="350dp"
-                android:layout_height="200dp"
-                android:layout_marginTop="20dp"
-                android:ems="10"
-                android:gravity="start|top"
-                android:inputType="textMultiLine"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/notesLabel" />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="117dp"
+                    android:id="@+id/addnote"
+                    android:fontFamily="@font/open_sans"
+                    android:textColor="@color/default_blue"
+                    android:textSize="14dp"
+                    android:textAlignment="viewStart"
+                    />
 
-            <ImageView
-                android:id="@+id/selectDate"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="8dp"
-                android:src="@drawable/calendaricon"
-                app:layout_constraintStart_toEndOf="@+id/selectedDate"
-                app:layout_constraintTop_toBottomOf="@+id/dateLabel" />
+            </androidx.cardview.widget.CardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

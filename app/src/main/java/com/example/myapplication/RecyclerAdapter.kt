@@ -14,7 +14,7 @@ import kotlin.collections.ArrayList
 class RecyclerAdapter(myCtx: Context, val trips: ArrayList<Trip>): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        var itemTitle: TextView = itemView.findViewById(R.id.itemtitle)
+        var itemTitle: TextView = itemView.findViewById(R.id.add)
         var itemDest: TextView = itemView.findViewById(R.id.destinaton)
         var itemStart: TextView = itemView.findViewById(R.id.date)
         var itemEdit: ImageView= itemView.findViewById(R.id.editIcon)
@@ -33,7 +33,7 @@ class RecyclerAdapter(myCtx: Context, val trips: ArrayList<Trip>): RecyclerView.
     }
 
     override fun getItemCount(): Int {
-    return trips.size
+        return trips.size
     }
 
     private fun convertLongToTime(time: Long): String {

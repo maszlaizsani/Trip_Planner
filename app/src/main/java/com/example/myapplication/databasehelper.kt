@@ -6,7 +6,8 @@ import com.example.myapplication.Trip
 
 class myDBhelper (context:Context) : SQLiteOpenHelper (context, "DATABASE", null,1){
     override fun onCreate (db: SQLiteDatabase?) {
-        db?.execSQL("CREATE TABLE IF NOT EXISTS TRIPS (tripID INTEGER PRIMARY KEY AUTOINCREMENT, tripNAME TEXT, destination TEXT, tripStartDate LONG, tripEndDate LONG, tripNote TEXT)")
+        val query="CREATE TABLE IF NOT EXISTS TRIPS (tripID INTEGER PRIMARY KEY AUTOINCREMENT, tripNAME TEXT, destination TEXT, tripStartDate LONG, tripEndDate LONG, tripNote TEXT)"
+        db?.execSQL(query)
     }
 
     override fun onUpgrade(p0: SQLiteDatabase?, p1: Int, p2: Int) {
@@ -20,7 +21,7 @@ class myDBhelper (context:Context) : SQLiteOpenHelper (context, "DATABASE", null
         val trips=ArrayList<Trip>()
 
         if (cursor.count==0)
-            Toast.makeText(myCtx,"No records!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(myCtx,"No records yet!", Toast.LENGTH_SHORT).show()
         else {
             while (cursor.moveToNext()) {
                 val trip = Trip()
