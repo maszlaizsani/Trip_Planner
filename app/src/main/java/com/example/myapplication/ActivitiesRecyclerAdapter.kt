@@ -4,15 +4,19 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import java.util.*
+import androidx.core.content.ContextCompat
 
-class ActivitiesRecyclerAdapter(myCtx: Context, val items: Array<String>): RecyclerView.Adapter<ActivitiesRecyclerAdapter.ViewHolder>() {
+class ActivitiesRecyclerAdapter(myCtx: Context, val items: List<ActivitiesClass>): RecyclerView.Adapter<ActivitiesRecyclerAdapter.ViewHolder>() {
 
+    val context=myCtx
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        var itemTitle: TextView = itemView.findViewById(R.id.add)
+        var itemTitle: TextView = itemView.findViewById(R.id.itemname)
         //var addButton: TextView=itemView.findViewById(R.id.addToPlan)
+        var itemImage: ImageView =itemView.findViewById(R.id.itemimage)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -21,7 +25,8 @@ class ActivitiesRecyclerAdapter(myCtx: Context, val items: Array<String>): Recyc
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.itemTitle.text=items[position]
+        holder.itemTitle.text=items[position].activityName
+        holder.itemImage.setImageDrawable(ContextCompat.getDrawable(context, items[position].activityImage))
     }
 
     override fun getItemCount(): Int {

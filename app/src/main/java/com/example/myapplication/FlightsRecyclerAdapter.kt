@@ -11,7 +11,7 @@ import java.util.*
 class FlightsRecyclerAdapter(myCtx: Context, val items: Array<String>): RecyclerView.Adapter<FlightsRecyclerAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        var itemTitle: TextView = itemView.findViewById(R.id.add)
+        var itemTitle: TextView = itemView.findViewById(R.id.itemname)
         //var addButton: TextView=itemView.findViewById(R.id.addToPlan)
     }
 

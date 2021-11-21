@@ -27,7 +27,13 @@ class ExploreActivity : AppCompatActivity() {
     //---------------------------------Recommended places-------------------------------------
 
     private fun showPlaces() {
-            val placeList = arrayOf("Paris", "Vancouver", "Budapest","Toronto","New York City","Stockholm","London")
+            val placeList = listOf(ActivitiesClass("Toronto", R.drawable.toronto),
+                ActivitiesClass("Paris", R.drawable.paris),
+                ActivitiesClass("Vancouver", R.drawable.vancouver),
+                ActivitiesClass("Budapest", R.drawable.budapest),
+                ActivitiesClass("Cairo", R.drawable.cairo),
+                ActivitiesClass("New York City", R.drawable.newyork)
+            )
             val rView = findViewById<RecyclerView>(R.id.placesRecycler)
             rView.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false) as RecyclerView.LayoutManager
             rView.adapter = CitiesRecyclerAdapter(this, placeList)
@@ -35,7 +41,14 @@ class ExploreActivity : AppCompatActivity() {
     //-------------------------------Recommended activities----------------------------------
 
     private fun showActivities() {
-        val activityList = arrayOf("Scubadiving", "Hiking", "Sightseeing","Cycling")
+        val activityList = listOf(
+            ActivitiesClass("Go cycling", R.drawable.cycling),
+            ActivitiesClass("Go hiking", R.drawable.hiking),
+            ActivitiesClass("Visit a Museum", R.drawable.museum),
+            ActivitiesClass("Go sightseeing", R.drawable.sightseeing),
+            ActivitiesClass("Visit a zoo", R.drawable.zoo),
+            ActivitiesClass("Try a new restaurant", R.drawable.restaurant))
+
         val rView = findViewById<RecyclerView>(R.id.activitiesRecycler)
         rView.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false) as RecyclerView.LayoutManager
         rView.adapter = ActivitiesRecyclerAdapter(this, activityList)
