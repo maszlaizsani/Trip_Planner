@@ -3,9 +3,16 @@ package com.example.myapplication
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log.d
 import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+
 
 class ExploreActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,6 +63,24 @@ class ExploreActivity : AppCompatActivity() {
     //----------------------------------------Flights----------------------------------------
 
     private fun showFlights() {
+
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://aerodatabox.p.rapidapi.com")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        val api = retrofit.create(APIservice::class.java)
+
+        api.fetchFlights().enqueue(object : Callback<List<flights>>{
+            override fun onResponse(call: Call<List<flights>>, response: Response<List<flights>>){
+              //  d("zsani", "onResponse: ${response.body().}")
+            }
+            override fun onFailure(call: Call<List<flights>>, t: Throwable){
+                d("zsani", "onFailure")
+            }
+
+        })
+
         val flightList = arrayOf("Flight1", "Flight2", "Flight3","Flight4")
         val rView = findViewById<RecyclerView>(R.id.flightsRecycler)
         rView.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false) as RecyclerView.LayoutManager

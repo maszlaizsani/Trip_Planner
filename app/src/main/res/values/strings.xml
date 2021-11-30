@@ -28,4 +28,10 @@
     <string name="your_tripname">your tripname</string>
     <string name="settings">settings</string>
     <string name="reminderbell">reminderbell</string>
+    <string name="trip_name">Trip name</string>
+    <string name="destination_countries">Destination countries</string>
+    <string name="trip_date">Trip date</string>
+    <string name="cities_to_visit">Cities to visit</string>
+    <string name="saved_activites">Saved activites</string>
+    <string name="your_notes">Your notes</string>
 </resources>

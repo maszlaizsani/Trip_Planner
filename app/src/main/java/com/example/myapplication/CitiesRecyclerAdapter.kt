@@ -1,12 +1,17 @@
 package com.example.myapplication
 
+import android.app.Application
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 
 class CitiesRecyclerAdapter(myCtx: Context, val items: List<ActivitiesClass>): RecyclerView.Adapter<CitiesRecyclerAdapter.ViewHolder>() {
@@ -14,7 +19,7 @@ class CitiesRecyclerAdapter(myCtx: Context, val items: List<ActivitiesClass>): R
     val context=myCtx
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         var itemTitle: TextView = itemView.findViewById(R.id.itemname)
-        //var addButton: TextView=itemView.findViewById(R.id.addToPlan)
+        var addButton: TextView=itemView.findViewById(R.id.addToPlan)
         var itemImage: ImageView=itemView.findViewById(R.id.itemimage)
     }
 
@@ -26,6 +31,12 @@ class CitiesRecyclerAdapter(myCtx: Context, val items: List<ActivitiesClass>): R
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.itemTitle.text=items[position].activityName
         holder.itemImage.setImageDrawable(ContextCompat.getDrawable(context, items[position].activityImage))
+        holder.addButton.setOnClickListener {
+            val cntx=holder.addButton.context
+            holder.itemTitle.text="Clicked"
+            val intent = Intent(cntx, EditActivity::class.java)
+            startActivity(cntx,intent, Bundle())
+        }
     }
 
     override fun getItemCount(): Int {

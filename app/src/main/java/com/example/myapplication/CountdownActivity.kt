@@ -60,10 +60,8 @@ class CountdownActivity : AppCompatActivity() {
         db.close()
 
      //--------------------------------Settings---------------------------------------------
-        val settings=findViewById<ImageView>(R.id.settingsButton)
-
-        settings.setOnClickListener {
-          //TODO
-        }
+      //  val settings=findViewById<ImageView>(R.id.settingsButton)
+      //  settings.setOnClickListener {
+      // }
     }
 }

@@ -1,12 +1,15 @@
 package com.example.myapplication
 
 import android.content.Context
+import android.content.Intent
 import android.icu.text.SimpleDateFormat
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import java.util.*
 import kotlin.collections.ArrayList
@@ -30,6 +33,11 @@ class RecyclerAdapter(myCtx: Context, val trips: ArrayList<Trip>): RecyclerView.
         holder.itemTitle.text=trip.tripNAME
         holder.itemDest.text="to " + trip.destination
         holder.itemStart.text= convertLongToTime(trip.tripStartDate)
+        holder.itemEdit.setOnClickListener{
+            val cntx=holder.itemTitle.context
+            val intent = Intent(cntx, detailsActivity::class.java)
+            ContextCompat.startActivity(cntx, intent, Bundle())
+        }
     }
 
     override fun getItemCount(): Int {

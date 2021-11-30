@@ -44,8 +44,8 @@
 
         <TextView
             android:id="@+id/addToPlan"
-            android:layout_width="68dp"
-            android:layout_height="22dp"
+            android:layout_width="76dp"
+            android:layout_height="33dp"
             android:fontFamily="@font/open_sans"
             android:shadowColor="#555555"
             android:shadowDx="5"
