@@ -4,15 +4,21 @@ import android.content.Context
 import android.content.Intent
 import android.icu.text.SimpleDateFormat
 import android.os.Bundle
+import android.provider.Settings.Global.putInt
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
+import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.RecyclerView
 import java.util.*
 import kotlin.collections.ArrayList
+import androidx.core.content.ContextCompat.startActivity
+import androidx.core.content.ContextCompat.startActivity
+
 
 class RecyclerAdapter(myCtx: Context, val trips: ArrayList<Trip>): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
@@ -31,12 +37,16 @@ class RecyclerAdapter(myCtx: Context, val trips: ArrayList<Trip>): RecyclerView.
     override fun onBindViewHolder(holder: RecyclerAdapter.ViewHolder, position: Int) {
         val trip: Trip=trips[position]
         holder.itemTitle.text=trip.tripNAME
-        holder.itemDest.text="to " + trip.destination
+        holder.itemDest.text="to " + getMainDestination(trip.destinations)
         holder.itemStart.text= convertLongToTime(trip.tripStartDate)
-        holder.itemEdit.setOnClickListener{
-            val cntx=holder.itemTitle.context
-            val intent = Intent(cntx, detailsActivity::class.java)
-            ContextCompat.startActivity(cntx, intent, Bundle())
+
+        //--------------------------Opening detail view on item click-----------------------
+        holder.itemView.setOnClickListener(){
+            val bundle=Bundle()
+            val ctx=holder.itemTitle.context
+            val intent = Intent(ctx, detailsActivity::class.java)
+            intent.putExtra("name", holder.itemTitle.text)
+            startActivity(ctx,intent,bundle)
         }
     }
 
@@ -49,4 +59,17 @@ class RecyclerAdapter(myCtx: Context, val trips: ArrayList<Trip>): RecyclerView.
         val format = SimpleDateFormat("dd.MM.yyyy")
         return format.format(date)
     }
+    private fun getMainDestination(destinations: String) : String {
+        var main=""
+        var i=0
+        while (i<destinations.length){
+            if (destinations[i]!=',') {
+                main += destinations[i]
+                ++i
+            }
+            else break
+        }
+        return main
+    }
+
 }

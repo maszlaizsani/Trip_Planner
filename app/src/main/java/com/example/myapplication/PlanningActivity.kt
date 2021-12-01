@@ -39,6 +39,17 @@ class PlanningActivity : AppCompatActivity() {
 
         val next=findViewById<Button>(R.id.next_plan)
 
+        //----------------------------------------Checkboxes------------------------------------
+
+        val family=findViewById<CheckBox>(R.id.chFamily)
+        val vacation=findViewById<CheckBox>(R.id.chVacation)
+        val solo=findViewById<CheckBox>(R.id.chSolo)
+        val friends=findViewById<CheckBox>(R.id.chFriends)
+        val business=findViewById<CheckBox>(R.id.chBusiness)
+        val roadTrip=findViewById<CheckBox>(R.id.chRoadtrip)
+        val honeymoon=findViewById<CheckBox>(R.id.chHoneymoon)
+        val exploration=findViewById<CheckBox>(R.id.chExploration)
+
         //-------------------------------Dropdown lists----------------------------------------
 
         val getName=findViewById<EditText>(R.id.getName)
@@ -76,8 +87,26 @@ class PlanningActivity : AppCompatActivity() {
         val helper= myDBhelper(applicationContext)
         val db=helper.readableDatabase
         val cv= ContentValues()
+        var categories=""
 
         next.setOnClickListener {
+            if (family.isChecked)
+                categories+= "Family;"
+            if (vacation.isChecked)
+                categories+= "Vacation;"
+            if (solo.isChecked)
+                categories+= "Solo;"
+            if (friends.isChecked)
+                categories+= "Friends;"
+            if (business.isChecked)
+                categories+= "Business;"
+            if (roadTrip.isChecked)
+                categories+= "Road trip;"
+            if (honeymoon.isChecked)
+                categories+= "Honeymoon;"
+            if (exploration.isChecked)
+                categories+= "Exploration and hiking;"
+
             if (getName.length()<3) {
                 Toast.makeText(this, "Trip name is too short!", Toast.LENGTH_SHORT).show()
                 getName.requestFocus()
@@ -86,15 +115,19 @@ class PlanningActivity : AppCompatActivity() {
                 Toast.makeText(this, "Destination not selected!", Toast.LENGTH_SHORT).show()
                 else {
                     cv.put("tripNAME", getName.text.toString())
-                    cv.put("destination", spinner1.selectedItem.toString())
+                    cv.put("destinations", storeDestination(spinner1.selectedItem.toString(),spinner2.selectedItem.toString(),spinner3.selectedItem.toString()))
                     cv.put("tripStartDate", startDate)
                     cv.put("tripEndDate", endDate)
                     cv.put("tripNote", addnote.text.toString())
+                    cv.put("categories", categories)
+                    cv.put("activities", "")
+                    cv.put("cities", "")
                     db.insert("TRIPS", null, cv)
                     Toast.makeText(this,"Saved plan",Toast.LENGTH_SHORT).show()
                     val intent = Intent(applicationContext, MainActivity::class.java)
                     startActivity(intent)
                 }
+            db.close()
         }
     }
 
@@ -119,5 +152,13 @@ class PlanningActivity : AppCompatActivity() {
        val date = Date(time)
        val format = SimpleDateFormat("dd.MM.yyyy")
        return format.format(date)
+    }
+
+    private fun storeDestination(sp1: String, sp2: String, sp3: String) : String {
+        var final=sp1
+        if (sp2!="No country selected") final+= ",$sp2"
+        if (sp3!="No country selected") final+= ",$sp3"
+
+        return final
     }
 }

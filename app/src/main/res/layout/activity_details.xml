@@ -31,17 +31,15 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
         android:layout_marginTop="20dp"
+        android:fontFamily="@font/open_sans"
         android:text="@string/trip_name"
         android:textColor="@color/white"
         android:textSize="23sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.312"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:fontFamily="@font/open_sans">
-    </TextView>
+        app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <ImageView
         android:id="@+id/editIcon"
@@ -72,7 +70,7 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/open_sans"
                 android:text="@string/destination_countries"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/date" />
 
@@ -84,7 +82,7 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/open_sans"
                 android:text="@string/trip_date"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -96,18 +94,24 @@
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/open_sans"
                 android:text="01-01-1970"
+                android:textSize="20sp"
                 android:textStyle="bold"
-                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/dateLabel" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/CountriesRecyclerView"
+            <TextView
+                android:id="@+id/countries"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:minHeight="60dp"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/open_sans"
+                android:text="Destination countries go here."
+                android:textAlignment="center"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/destination" />
+                app:layout_constraintTop_toBottomOf="@+id/destination"
+                android:layout_height="wrap_content"/>
 
             <TextView
                 android:id="@+id/cities"
@@ -117,9 +121,9 @@
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/open_sans"
                 android:text="@string/cities_to_visit"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/CountriesRecyclerView" />
+                app:layout_constraintTop_toBottomOf="@+id/countries" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/CitiesRecyclerView"
@@ -137,7 +141,7 @@
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/open_sans"
                 android:text="@string/saved_activites"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/CitiesRecyclerView" />
 
@@ -157,18 +161,18 @@
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/open_sans"
                 android:text="@string/your_notes"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ActivitiesRecyclerView" />
 
             <TextView
                 android:id="@+id/notes"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="128dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/open_sans"
                 android:text="Your notes go here."
+                android:textAlignment="center"
                 android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/notesLabel" />

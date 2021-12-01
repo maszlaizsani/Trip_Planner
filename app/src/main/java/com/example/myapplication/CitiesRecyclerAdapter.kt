@@ -34,8 +34,8 @@ class CitiesRecyclerAdapter(myCtx: Context, val items: List<ActivitiesClass>): R
         holder.addButton.setOnClickListener {
             val cntx=holder.addButton.context
             holder.itemTitle.text="Clicked"
-            val intent = Intent(cntx, EditActivity::class.java)
-            startActivity(cntx,intent, Bundle())
+            //val intent = Intent(cntx, EditActivity::class.java)
+            //startActivity(cntx,intent, Bundle())
         }
     }
 
