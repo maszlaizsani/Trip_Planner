@@ -25,10 +25,11 @@ class detailsActivity : AppCompatActivity() {
         mydbhelper =myDBhelper(this)
 
         //----------------------------StatusBar color change------------------------------------
+
         val window: Window = this@detailsActivity.window
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-        window.statusBarColor = ContextCompat.getColor(this@detailsActivity, R.color.statusbar)
+        window.statusBarColor = ContextCompat.getColor(this@detailsActivity, R.color.detail_statusbar)
         //#132e39
 
         //-----------------------------Back button----------------------------------------------
@@ -40,12 +41,10 @@ class detailsActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        //------------------------------------Getting attributes from DB------------------------
+        //--------------------------Getting attributes from DB----------------------------------
 
         val s: String = intent.getStringExtra("name").toString()
         val plan: Trip = mydbhelper.getTripDetails(this,s)
-
-        //Toast.makeText(applicationContext, "s=$s",Toast.LENGTH_SHORT).show()
 
         val tripName=findViewById<TextView>(R.id.title)
         val date=findViewById<TextView>(R.id.date)

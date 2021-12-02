@@ -2,6 +2,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.widget.Toast
+import android.widget.Toast.makeText
 import com.example.myapplication.Trip
 
 class myDBhelper (context:Context) : SQLiteOpenHelper (context, "DATABASE", null,1){
@@ -21,7 +22,7 @@ class myDBhelper (context:Context) : SQLiteOpenHelper (context, "DATABASE", null
         val trips=ArrayList<Trip>()
 
         if (cursor.count==0)
-            Toast.makeText(myCtx,"No plans yet!", Toast.LENGTH_SHORT).show()
+            makeText(myCtx,"No plans yet!", Toast.LENGTH_SHORT).show()
         else {
             while (cursor.moveToNext()) {
                 val trip = Trip()
@@ -48,7 +49,7 @@ class myDBhelper (context:Context) : SQLiteOpenHelper (context, "DATABASE", null
         val cursor=db.rawQuery(qry,null)
         val trip=Trip()
         if (cursor.count==0)
-            Toast.makeText(myCtx,"Something went wrong", Toast.LENGTH_SHORT).show()
+            makeText(myCtx,"Something went wrong", Toast.LENGTH_SHORT).show()
         else {
             cursor.moveToFirst()
             trip.tripID = cursor.getInt(0)
@@ -66,6 +67,37 @@ class myDBhelper (context:Context) : SQLiteOpenHelper (context, "DATABASE", null
         cursor.close()
         db.close()
         return trip
+    }
+
+    fun saveActivity(cityName: String, activityName: String, tripName: String) {
+
+        //----retrieving saved activities------------------------
+        val old= "SELECT * FROM TRIPS WHERE tripNAME='$tripName'"
+        val db1=this.readableDatabase
+        val cursor=db1.rawQuery(old,null)
+            cursor.moveToFirst()
+            var citiesOld = cursor.getString(8)
+            var activitesOld=cursor.getString(7)
+        cursor.close()
+        db1.close()
+
+        //---------adding new activities------------------------
+        if (activityName=="") {
+            citiesOld += "$cityName;"
+            val db = this.writableDatabase
+            val qry = "UPDATE TRIPS SET cities='$citiesOld' WHERE tripNAME='$tripName'"
+            db.execSQL(qry)
+            db.close()
+        }
+        if(cityName==""){
+            activitesOld += "$activityName;"
+            val db = this.writableDatabase
+            val qry = "UPDATE TRIPS SET activities='$activityName' WHERE tripNAME='$tripName'"
+            db.execSQL(qry)
+            db.close()
+        }
+
+
     }
 
 }

@@ -7,6 +7,8 @@ import android.util.Log.d
 import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.countdown_layout.*
+import myDBhelper
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -15,10 +17,14 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 class ExploreActivity : AppCompatActivity() {
+    companion object {
+        lateinit var mydbhelper: myDBhelper
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.explore_layout)
 
+        mydbhelper =myDBhelper(this)
         showPlaces()
         showActivities()
         showFlights()
@@ -28,6 +34,21 @@ class ExploreActivity : AppCompatActivity() {
         cancel.setOnClickListener {
             val intent = Intent(applicationContext, MainActivity::class.java)
             startActivity(intent)
+
+
+
+        //------------------------Saving newly added activities in DB-------------------------
+
+            if(adding.trip!="" && adding.activity!="" && adding.city=="") {
+                mydbhelper.saveActivity(adding.activity, "", adding.trip)
+                adding.trip=""
+                adding.activity=""
+            }
+            if(adding.trip!="" && adding.activity=="" && adding.city!="") {
+                mydbhelper.saveActivity(adding.activity, "", adding.trip)
+                adding.trip=""
+                adding.activity=""
+            }
         }
     }
 
@@ -68,4 +89,5 @@ class ExploreActivity : AppCompatActivity() {
         rView.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false) as RecyclerView.LayoutManager
         rView.adapter = FlightsRecyclerAdapter(this, flightList)
     }
+
 }

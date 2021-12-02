@@ -1,6 +1,8 @@
 package com.example.myapplication
 
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +17,7 @@ class ActivitiesRecyclerAdapter(myCtx: Context, val items: List<ActivitiesClass>
     val context=myCtx
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         var itemTitle: TextView = itemView.findViewById(R.id.itemname)
-        //var addButton: TextView=itemView.findViewById(R.id.addToPlan)
+        var addButton: TextView=itemView.findViewById(R.id.addToPlan)
         var itemImage: ImageView =itemView.findViewById(R.id.itemimage)
     }
 
@@ -27,6 +29,12 @@ class ActivitiesRecyclerAdapter(myCtx: Context, val items: List<ActivitiesClass>
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.itemTitle.text=items[position].activityName
         holder.itemImage.setImageDrawable(ContextCompat.getDrawable(context, items[position].activityImage))
+        holder.addButton.setOnClickListener {
+            val cntx=holder.addButton.context
+            val intent = Intent(cntx, AddActivity::class.java)
+            intent.putExtra("activityName", holder.itemTitle.text)
+            ContextCompat.startActivity(cntx, intent, Bundle())
+        }
     }
 
     override fun getItemCount(): Int {

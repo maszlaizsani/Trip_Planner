@@ -33,13 +33,14 @@ class CitiesRecyclerAdapter(myCtx: Context, val items: List<ActivitiesClass>): R
         holder.itemImage.setImageDrawable(ContextCompat.getDrawable(context, items[position].activityImage))
         holder.addButton.setOnClickListener {
             val cntx=holder.addButton.context
-            holder.itemTitle.text="Clicked"
-            //val intent = Intent(cntx, EditActivity::class.java)
-            //startActivity(cntx,intent, Bundle())
+            val intent = Intent(cntx, AddActivity::class.java)
+            intent.putExtra("activityName", holder.itemTitle.text)
+            startActivity(cntx,intent, Bundle())
         }
     }
 
     override fun getItemCount(): Int {
         return items.size
     }
+
 }

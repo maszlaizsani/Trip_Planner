@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.startActivity
 import androidx.core.os.bundleOf
@@ -20,21 +21,20 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.core.content.ContextCompat.startActivity
 
 
-class RecyclerAdapter(myCtx: Context, val trips: ArrayList<Trip>): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+class addcardRecycler(myCtx: Context, val trips: ArrayList<Trip>): RecyclerView.Adapter<addcardRecycler.ViewHolder>() {
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         var itemTitle: TextView = itemView.findViewById(R.id.itemname)
         var itemDest: TextView = itemView.findViewById(R.id.destinaton)
         var itemStart: TextView = itemView.findViewById(R.id.date)
-        var itemEdit: ImageView= itemView.findViewById(R.id.editIcon)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerAdapter.ViewHolder {
-        val v=LayoutInflater.from(parent.context).inflate(R.layout.card_layout,parent,false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val v=LayoutInflater.from(parent.context).inflate(R.layout.addcard_layout,parent,false)
         return ViewHolder(v)
     }
 
-    override fun onBindViewHolder(holder: RecyclerAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val trip: Trip=trips[position]
         holder.itemTitle.text=trip.tripNAME
         holder.itemDest.text="to " + getMainDestination(trip.destinations)
@@ -42,11 +42,11 @@ class RecyclerAdapter(myCtx: Context, val trips: ArrayList<Trip>): RecyclerView.
 
         //--------------------------Opening detail view on item click-----------------------
         holder.itemView.setOnClickListener(){
-            val bundle=Bundle()
+            adding.trip=trip.tripNAME
             val ctx=holder.itemTitle.context
-            val intent = Intent(ctx, detailsActivity::class.java)
-            intent.putExtra("name", holder.itemTitle.text)
-            startActivity(ctx,intent,bundle)
+            val intent = Intent(ctx, ExploreActivity::class.java)
+            Toast.makeText(ctx,"Added succesfully.", Toast.LENGTH_SHORT).show()
+            startActivity(ctx,intent, Bundle())
         }
     }
 
@@ -59,7 +59,6 @@ class RecyclerAdapter(myCtx: Context, val trips: ArrayList<Trip>): RecyclerView.
         val format = SimpleDateFormat("dd.MM.yyyy")
         return format.format(date)
     }
-
     private fun getMainDestination(destinations: String) : String {
         var main=""
         var i=0

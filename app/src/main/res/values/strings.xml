@@ -34,4 +34,6 @@
     <string name="cities_to_visit">Cities to visit</string>
     <string name="saved_activites">Saved activites</string>
     <string name="your_notes">Your notes</string>
+    <string name="countdown">Countdown</string>
+    <string name="add_reminder">Add reminder</string>
 </resources>

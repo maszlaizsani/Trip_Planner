@@ -4,13 +4,21 @@ import android.icu.text.SimpleDateFormat
 import java.util.*
 
 public class Trip {
-    public var tripID: Int = 0
-    public var tripNAME: String = ""
-    public var destinations: String = ""
-    public var tripStartDate: Long = 0
-    public var tripEndDate: Long = 0
-    public var tripNote: String=""
-    public var categories: String=""
-    public var activities: String=""
-    public var cities: String=""
+    var tripID: Int = 0
+    var tripNAME: String = ""
+    var destinations: String = ""
+    var tripStartDate: Long = 0
+    var tripEndDate: Long = 0
+    var tripNote: String=""
+    var categories: String=""
+    var activities: String=""
+    var cities: String=""
 }
+
+public class Adding {
+     var activity: String=""
+    var trip: String=""
+    var city: String=""
+}
+val adding=Adding()
+
