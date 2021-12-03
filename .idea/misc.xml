@@ -9,7 +9,7 @@
         <entry key="..\:/zsanett/testapp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3223684210526316" />
         <entry key="..\:/zsanett/testapp/app/src/main/res/drawable/icon_background.xml" value="0.3223684210526316" />
         <entry key="..\:/zsanett/testapp/app/src/main/res/layout/activity_add.xml" value="0.30085470085470084" />
-        <entry key="..\:/zsanett/testapp/app/src/main/res/layout/activity_details.xml" value="0.25" />
+        <entry key="..\:/zsanett/testapp/app/src/main/res/layout/activity_details.xml" value="0.33" />
         <entry key="..\:/zsanett/testapp/app/src/main/res/layout/activity_edit.xml" value="0.27735042735042736" />
         <entry key="..\:/zsanett/testapp/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/zsanett/testapp/app/src/main/res/layout/activity_my_trips.xml" value="0.30085470085470084" />
@@ -20,10 +20,13 @@
         <entry key="..\:/zsanett/testapp/app/src/main/res/layout/cities_recycler_layout.xml" value="0.30085470085470084" />
         <entry key="..\:/zsanett/testapp/app/src/main/res/layout/countdown.xml" value="0.30085470085470084" />
         <entry key="..\:/zsanett/testapp/app/src/main/res/layout/countdown_layout.xml" value="0.30085470085470084" />
+        <entry key="..\:/zsanett/testapp/app/src/main/res/layout/details_recycle.xml" value="0.5" />
+        <entry key="..\:/zsanett/testapp/app/src/main/res/layout/details_recycle_layout.xml" value="0.30085470085470084" />
         <entry key="..\:/zsanett/testapp/app/src/main/res/layout/dropdownlists.xml" value="0.30085470085470084" />
         <entry key="..\:/zsanett/testapp/app/src/main/res/layout/dropdowntext.xml" value="0.30085470085470084" />
         <entry key="..\:/zsanett/testapp/app/src/main/res/layout/explore_layout.xml" value="0.30085470085470084" />
         <entry key="..\:/zsanett/testapp/app/src/main/res/layout/exrecycler_layout.xml" value="0.33" />
+        <entry key="..\:/zsanett/testapp/app/src/main/res/layout/flights_recycler_layout.xml" value="0.30085470085470084" />
         <entry key="..\:/zsanett/testapp/app/src/main/res/layout/mytrips_layout.xml" value="0.30085470085470084" />
         <entry key="..\:/zsanett/testapp/app/src/main/res/layout/newplan_calendar.xml" value="0.30085470085470084" />
         <entry key="..\:/zsanett/testapp/app/src/main/res/layout/newplan_categories.xml" value="0.30085470085470084" />

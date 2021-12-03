@@ -32,7 +32,7 @@ class ActivitiesRecyclerAdapter(myCtx: Context, val items: List<ActivitiesClass>
         holder.addButton.setOnClickListener {
             val cntx=holder.addButton.context
             val intent = Intent(cntx, AddActivity::class.java)
-            intent.putExtra("activityName", holder.itemTitle.text)
+            adding.activity=holder.itemTitle.text.toString()
             ContextCompat.startActivity(cntx, intent, Bundle())
         }
     }

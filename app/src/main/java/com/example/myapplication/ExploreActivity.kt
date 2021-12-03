@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log.d
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.countdown_layout.*
@@ -35,21 +36,18 @@ class ExploreActivity : AppCompatActivity() {
             val intent = Intent(applicationContext, MainActivity::class.java)
             startActivity(intent)
 
-
-
-        //------------------------Saving newly added activities in DB-------------------------
-
-            if(adding.trip!="" && adding.activity!="" && adding.city=="") {
-                mydbhelper.saveActivity(adding.activity, "", adding.trip)
-                adding.trip=""
-                adding.activity=""
-            }
-            if(adding.trip!="" && adding.activity=="" && adding.city!="") {
-                mydbhelper.saveActivity(adding.activity, "", adding.trip)
-                adding.trip=""
-                adding.activity=""
-            }
         }
+        //------------------------Saving newly added activities in DB-------------------------
+        //Toast.makeText(this,"${adding.trip}, ${adding.city},${adding.activity}",Toast.LENGTH_SHORT).show()
+        if(adding.trip!="" && adding.city!="" && adding.activity=="") {
+                mydbhelper.saveCity(adding.city,adding.trip)
+                adding.setDefault()
+        }
+        if(adding.trip!="" && adding.activity!="" && adding.city==""){
+                mydbhelper.saveActivity(adding.activity,adding.trip)
+                adding.setDefault()
+        }
+
     }
 
     //---------------------------------Recommended places-------------------------------------
@@ -84,7 +82,7 @@ class ExploreActivity : AppCompatActivity() {
     //----------------------------------------Flights----------------------------------------
 
     private fun showFlights() {
-        val flightList = arrayOf("Flight1", "Flight2", "Flight3","Flight4")
+        val flightList = listOf("BUD-JFK", "BUD-YYZ", "BUD-YHZ","BUD-YEG")
         val rView = findViewById<RecyclerView>(R.id.flightsRecycler)
         rView.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false) as RecyclerView.LayoutManager
         rView.adapter = FlightsRecyclerAdapter(this, flightList)

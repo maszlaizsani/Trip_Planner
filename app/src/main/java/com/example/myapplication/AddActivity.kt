@@ -29,8 +29,6 @@ class AddActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-    //-----------------------------------Retrieving chosen activity-----------------------------
-        adding.activity= intent.getStringExtra("activityName").toString()
     }
 
     //-----------------------------------Displaying saved plans---------------------------------

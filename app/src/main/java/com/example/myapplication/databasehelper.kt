@@ -62,42 +62,49 @@ class myDBhelper (context:Context) : SQLiteOpenHelper (context, "DATABASE", null
             trip.activities = cursor.getString(7)
             trip.cities = cursor.getString(8)
 
-          //  Toast.makeText(myCtx,trip.tripNAME + " "+ trip.destination,Toast.LENGTH_SHORT).show()
         }
         cursor.close()
         db.close()
         return trip
     }
 
-    fun saveActivity(cityName: String, activityName: String, tripName: String) {
+    fun saveCity(cityName: String, tripName: String) {
+
+        //----retrieving saved cities------------------------
+        val old= "SELECT * FROM TRIPS WHERE tripNAME='$tripName'"
+        val db1=this.readableDatabase
+        val cursor=db1.rawQuery(old,null)
+            cursor.moveToFirst()
+            var cities=cursor.getString(8)
+        cursor.close()
+        db1.close()
+
+        //---------concatenating new cities------------------
+
+            cities+= "$cityName;"
+            val db = this.writableDatabase
+            val qry = "UPDATE TRIPS SET cities='$cities' WHERE tripNAME='$tripName'"
+            db.execSQL(qry)
+            db.close()
+        }
+
+    fun saveActivity(activityName: String, tripName: String) {
 
         //----retrieving saved activities------------------------
         val old= "SELECT * FROM TRIPS WHERE tripNAME='$tripName'"
         val db1=this.readableDatabase
         val cursor=db1.rawQuery(old,null)
-            cursor.moveToFirst()
-            var citiesOld = cursor.getString(8)
-            var activitesOld=cursor.getString(7)
+        cursor.moveToFirst()
+        var activity=cursor.getString(7)
         cursor.close()
         db1.close()
 
-        //---------adding new activities------------------------
-        if (activityName=="") {
-            citiesOld += "$cityName;"
-            val db = this.writableDatabase
-            val qry = "UPDATE TRIPS SET cities='$citiesOld' WHERE tripNAME='$tripName'"
-            db.execSQL(qry)
-            db.close()
-        }
-        if(cityName==""){
-            activitesOld += "$activityName;"
-            val db = this.writableDatabase
-            val qry = "UPDATE TRIPS SET activities='$activityName' WHERE tripNAME='$tripName'"
-            db.execSQL(qry)
-            db.close()
-        }
+        //---------concatenating new activities------------------
 
-
+        activity += "$activityName;"
+        val db = this.writableDatabase
+        val qry = "UPDATE TRIPS SET activities='$activity' WHERE tripNAME='$tripName'"
+        db.execSQL(qry)
+        db.close()
     }
-
-}
+    }

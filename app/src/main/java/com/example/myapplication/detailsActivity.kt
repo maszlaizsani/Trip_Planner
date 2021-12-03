@@ -10,6 +10,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import myDBhelper
 import java.util.*
 
@@ -56,7 +58,47 @@ class detailsActivity : AppCompatActivity() {
         note.text=plan.tripNote
         destinations.text=plan.destinations
 
+        //-----------------------Making a list of the cities to display-----------------------
+        var cityList= mutableListOf<String>()
+
+        makeList(plan.cities,cityList)
+        showCities(cityList)
+        //---------------------Making a list of the activities to display---------------------
+        var activityList= mutableListOf<String>()
+        makeList(plan.activities, activityList)
+        showActivities(activityList)
+
     }
+    private fun makeList(fromDB: String, list: MutableList<String>){
+        var i=0
+        var city=""
+        while(i<fromDB.length) {
+            if (fromDB[i]!=';'){
+                city+=fromDB[i]
+                ++i
+            }
+            if (fromDB[i]==';') {
+                list.add(city)
+                city=""
+                ++i
+            }
+        }
+    }
+
+    private fun showCities(list: List<String>) {
+        var List=list
+        val rView = findViewById<RecyclerView>(R.id.CitiesRecyclerView)
+        rView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        rView.adapter = DetailsRecycler(this, List)
+    }
+
+    private fun showActivities(list: List<String>) {
+        var List=list
+        val rView = findViewById<RecyclerView>(R.id.ActivitiesRecyclerView)
+        rView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        rView.adapter = DetailsRecycler(this, List)
+    }
+
     private fun convertLongToTime(time: Long): String {
         val date = Date(time)
         val format = SimpleDateFormat("dd.MM.yyyy")

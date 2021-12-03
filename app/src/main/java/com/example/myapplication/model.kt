@@ -19,6 +19,11 @@ public class Adding {
      var activity: String=""
     var trip: String=""
     var city: String=""
+    fun setDefault(){
+        trip=""
+        city=""
+        activity=""
+    }
 }
 val adding=Adding()
 
