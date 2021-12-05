@@ -3,7 +3,16 @@ package com.example.myapplication
 import android.icu.text.SimpleDateFormat
 import java.util.*
 
-public class Trip {
+class Convert{
+    fun convertLongToTime(time: Long): String {
+        val date = Date(time)
+        val format = SimpleDateFormat("dd.MM.yyyy")
+        return format.format(date)
+    }
+}
+val convert=Convert()
+
+class Trip {
     var tripID: Int = 0
     var tripNAME: String = ""
     var destinations: String = ""
@@ -15,7 +24,7 @@ public class Trip {
     var cities: String=""
 }
 
-public class Adding {
+class Adding {
      var activity: String=""
     var trip: String=""
     var city: String=""

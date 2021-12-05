@@ -26,10 +26,11 @@ class CountdownActivity : AppCompatActivity() {
         val window: Window = this@CountdownActivity.window
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-        window.statusBarColor = ContextCompat.getColor(this@CountdownActivity, R.color.countdown_statusbar) //adadad
+        window.statusBarColor =
+            ContextCompat.getColor(this@CountdownActivity, R.color.countdown_statusbar) //adadad
 
         //-----------------------------------Back button----------------------------------------
-        val cancel=findViewById<ImageView>(R.id.cancelPlan)
+        val cancel = findViewById<ImageView>(R.id.cancelPlan)
         cancel.setOnClickListener {
             val intent = Intent(applicationContext, MainActivity::class.java)
             startActivity(intent)
@@ -37,40 +38,34 @@ class CountdownActivity : AppCompatActivity() {
 
         //-------------------------------Calculating remaining days-----------------------------
 
-        val helper=myDBhelper(applicationContext)
-        val db=helper.readableDatabase
-        val name=findViewById<TextView>(R.id.tripname)
-        val daysRemaining=findViewById<TextView>(R.id.counter)
-        val days=findViewById<TextView>(R.id.days)
+        val helper = myDBhelper(applicationContext)
+        val db = helper.readableDatabase
+        val name = findViewById<TextView>(R.id.tripname)
+        val daysRemaining = findViewById<TextView>(R.id.counter)
+        val days = findViewById<TextView>(R.id.days)
 
 
-        val qry= "SELECT * FROM TRIPS"
-        val cursor=db.rawQuery(qry,null)
+        val qry = "SELECT * FROM TRIPS"
+        val cursor = db.rawQuery(qry, null)
 
-        if (cursor.count!=0){
+        if (cursor.count != 0) {
             cursor.moveToLast()
-            val tripName=cursor.getString(1)
-            val tripDate=cursor.getLong(3)
-            val currentTime : Long = Calendar.getInstance().timeInMillis
+            val tripName = cursor.getString(1)
+            val tripDate = cursor.getLong(3)
+            val currentTime: Long = Calendar.getInstance().timeInMillis
             val difference: Long = tripDate - currentTime
-            val days = (((difference / 1000)/60)/60)/24
+            val days = (((difference / 1000) / 60) / 60) / 24
 
-            name.text=tripName.toString()
-            daysRemaining.text=days.toString()
-        }
-
-        else {
-            days.visibility=INVISIBLE
-            daysRemaining.visibility= INVISIBLE
-            name.text="No record yet"
+            name.text = tripName.toString()
+            daysRemaining.text = days.toString()
+        } else {
+            days.visibility = INVISIBLE
+            daysRemaining.visibility = INVISIBLE
+            name.text = "No record yet"
         }
 
         cursor.close()
         db.close()
 
-     //--------------------------------Settings---------------------------------------------
-      //  val settings=findViewById<ImageView>(R.id.settingsButton)
-      //  settings.setOnClickListener {
-      // }
     }
 }

@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         mydbhelper =myDBhelper(this)
         viewPlans()
         adding.setDefault()
-        //Toast.makeText(this,"${adding.trip}, ${adding.city},${adding.activity}",Toast.LENGTH_SHORT).show()
+
         //--------------------------Button IDs-------------------------------
         val startPlan = findViewById<ImageView>(R.id.button_newtrip)
         val explore=findViewById<ImageView>(R.id.explore_button)

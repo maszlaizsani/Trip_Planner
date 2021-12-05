@@ -15,6 +15,8 @@ class myDBhelper (context:Context) : SQLiteOpenHelper (context, "DATABASE", null
         TODO("Not yet implemented")
     }
 
+    //----------------------------------Getting all trip data-----------------------------------
+
     fun getTrips(myCtx: Context) : ArrayList<Trip> {
         val qry= "SELECT * FROM TRIPS"
         val db =this.readableDatabase
@@ -39,9 +41,11 @@ class myDBhelper (context:Context) : SQLiteOpenHelper (context, "DATABASE", null
             }
         }
         cursor.close()
-        db.close()
+        //db.close()
         return trips
     }
+
+    //----------------------------Getting data only for selected plan--------------------------
 
     fun getTripDetails(myCtx: Context, name: String): Trip {
         val qry= "SELECT * FROM TRIPS WHERE tripNAME='$name'"
@@ -107,4 +111,9 @@ class myDBhelper (context:Context) : SQLiteOpenHelper (context, "DATABASE", null
         db.execSQL(qry)
         db.close()
     }
+    fun deletePlan(tripname: String){
+        val qry= "DELETE FROM TRIPS WHERE tripNAME='$tripname'"
+        val db=this.readableDatabase
+        db.execSQL(qry)
     }
+}

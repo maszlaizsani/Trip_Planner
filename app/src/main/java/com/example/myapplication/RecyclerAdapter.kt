@@ -42,11 +42,16 @@ class RecyclerAdapter(myCtx: Context, val trips: ArrayList<Trip>): RecyclerView.
 
         //--------------------------Opening detail view on item click-----------------------
         holder.itemView.setOnClickListener(){
-            val bundle=Bundle()
             val ctx=holder.itemTitle.context
             val intent = Intent(ctx, detailsActivity::class.java)
             intent.putExtra("name", holder.itemTitle.text)
-            startActivity(ctx,intent,bundle)
+            startActivity(ctx,intent,Bundle())
+        }
+        holder.itemEdit.setOnClickListener(){
+            val ctx=holder.itemTitle.context
+            val intent = Intent(ctx, EditActivity::class.java)
+            intent.putExtra("name", holder.itemTitle.text)
+            startActivity(ctx,intent,Bundle())
         }
     }
 

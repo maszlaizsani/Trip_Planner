@@ -38,7 +38,7 @@ class ExploreActivity : AppCompatActivity() {
 
         }
         //------------------------Saving newly added activities in DB-------------------------
-        //Toast.makeText(this,"${adding.trip}, ${adding.city},${adding.activity}",Toast.LENGTH_SHORT).show()
+
         if(adding.trip!="" && adding.city!="" && adding.activity=="") {
                 mydbhelper.saveCity(adding.city,adding.trip)
                 adding.setDefault()

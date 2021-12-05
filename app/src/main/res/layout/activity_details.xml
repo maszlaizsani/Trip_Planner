@@ -45,11 +45,11 @@
 
             <TextView
                 android:id="@+id/date"
-                android:layout_width="104dp"
+                android:layout_width="wrap_content"
                 android:layout_height="26dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/open_sans"
-                android:text="01-01-1970"
+                android:text="01-01-1970 - 01-01-1970"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -189,13 +189,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/editIcon"
+        android:id="@+id/deleteicon"
         android:layout_width="46dp"
         android:layout_height="33dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/editicon" />
+        app:srcCompat="@drawable/deleteicon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -54,7 +54,7 @@ class detailsActivity : AppCompatActivity() {
         val destinations=findViewById<TextView>(R.id.countries)
 
         tripName.text=plan.tripNAME
-        date.text= convertLongToTime(plan.tripStartDate)
+        date.text= convert.convertLongToTime(plan.tripStartDate)+ " - " + convert.convertLongToTime(plan.tripEndDate)
         note.text=plan.tripNote
         destinations.text=plan.destinations
 
@@ -67,6 +67,15 @@ class detailsActivity : AppCompatActivity() {
         var activityList= mutableListOf<String>()
         makeList(plan.activities, activityList)
         showActivities(activityList)
+
+        //-------------------------------Delete button-----------------------------------------
+        val delete=findViewById<ImageView>(R.id.deleteicon)
+        delete.setOnClickListener(){
+            mydbhelper.deletePlan(plan.tripNAME)
+            Toast.makeText(this,"Delete successful.", Toast.LENGTH_SHORT).show()
+            val intent = Intent(applicationContext, MainActivity::class.java)
+            startActivity(intent)
+        }
 
     }
     private fun makeList(fromDB: String, list: MutableList<String>){
@@ -99,9 +108,4 @@ class detailsActivity : AppCompatActivity() {
         rView.adapter = DetailsRecycler(this, List)
     }
 
-    private fun convertLongToTime(time: Long): String {
-        val date = Date(time)
-        val format = SimpleDateFormat("dd.MM.yyyy")
-        return format.format(date)
-    }
 }

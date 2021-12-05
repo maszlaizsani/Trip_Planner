@@ -82,14 +82,25 @@ class PlanningActivity : AppCompatActivity() {
             spinner3.visibility=View.VISIBLE
         }
 
-        //---------------------------saving all attributes in DB--------------------------------
+        //-------------------------------Setting up DB helper-----------------------------------
 
         val helper= myDBhelper(applicationContext)
         val db=helper.readableDatabase
         val cv= ContentValues()
         var categories=""
+        val planList: ArrayList<Trip> = helper.getTrips(this)
 
         next.setOnClickListener {
+            //-----------------Checking if entered trip name is already in use------------------
+            var nameIsUsed: Int =0
+            var i=0
+            while(i<planList.size){
+                if (planList[i].tripNAME==getName.text.toString()) {
+                    nameIsUsed=1
+                    }
+                ++i
+                }
+            //---------------------Checking which categories were selected----------------------
             if (family.isChecked)
                 categories+= "Family;"
             if (vacation.isChecked)
@@ -107,12 +118,19 @@ class PlanningActivity : AppCompatActivity() {
             if (exploration.isChecked)
                 categories+= "Exploration and hiking;"
 
+            //------------------Checking if the given name is long enough-----------------------
             if (getName.length()<3) {
                 Toast.makeText(this, "Trip name is too short!", Toast.LENGTH_SHORT).show()
                 getName.requestFocus()
             }
+            else if(nameIsUsed==1){
+                Toast.makeText(this, "This trip name is already in use.", Toast.LENGTH_SHORT).show()
+                getName.requestFocus()
+            }
             else if (spinner1.selectedItem.toString()=="No country selected")
                 Toast.makeText(this, "Destination not selected!", Toast.LENGTH_SHORT).show()
+
+            //--------------------------Inserting entered data into DB--------------------------
                 else {
                     cv.put("tripNAME", getName.text.toString())
                     cv.put("destinations", storeDestination(spinner1.selectedItem.toString(),spinner2.selectedItem.toString(),spinner3.selectedItem.toString()))
@@ -127,11 +145,10 @@ class PlanningActivity : AppCompatActivity() {
                     val intent = Intent(applicationContext, MainActivity::class.java)
                     startActivity(intent)
                 }
-            db.close()
         }
     }
 
-    //---------------------------------Date picker and converter--------------------------------
+    //---------------------------------------Date picker---------------------------------------
 
     private fun buildDatePicker(){
         val dateRangePicker=MaterialDatePicker.Builder
@@ -144,16 +161,11 @@ class PlanningActivity : AppCompatActivity() {
         dateRangePicker.addOnPositiveButtonClickListener { date ->
             startDate=date.first
             endDate=date.second
-            selectedDate.text = convertLongToTime(startDate) + " - " + convertLongToTime(endDate)
+            selectedDate.text = "${convert.convertLongToTime(startDate)}  -  ${convert.convertLongToTime(endDate)}"
         }
     }
 
-   private fun convertLongToTime(time: Long): String {
-       val date = Date(time)
-       val format = SimpleDateFormat("dd.MM.yyyy")
-       return format.format(date)
-    }
-
+    //--------------------------------Storing destination--------------------------------------
     private fun storeDestination(sp1: String, sp2: String, sp3: String) : String {
         var final=sp1
         if (sp2!="No country selected") final+= ",$sp2"
