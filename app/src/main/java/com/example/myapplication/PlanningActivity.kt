@@ -39,7 +39,7 @@ class PlanningActivity : AppCompatActivity() {
 
         val next=findViewById<Button>(R.id.next_plan)
 
-        //----------------------------------------Checkboxes------------------------------------
+        //-----------------------------------Checkboxes----------------------------------------
 
         val family=findViewById<CheckBox>(R.id.chFamily)
         val vacation=findViewById<CheckBox>(R.id.chVacation)

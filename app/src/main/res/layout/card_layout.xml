@@ -48,6 +48,7 @@
             android:layout_height="20dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="8dp"
+            android:contentDescription="@string/locationicon"
             app:layout_constraintEnd_toStartOf="@+id/destinaton"
             app:layout_constraintTop_toBottomOf="@+id/itemname"
             app:srcCompat="@drawable/location2" />
@@ -64,11 +65,12 @@
             app:layout_constraintTop_toBottomOf="@+id/destinaton" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/calendaricon"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="8dp"
+            android:contentDescription="@string/calendaricon"
             app:layout_constraintEnd_toStartOf="@+id/date"
             app:layout_constraintTop_toBottomOf="@+id/destinaton"
             app:srcCompat="@drawable/calendar2" />
@@ -78,7 +80,7 @@
             android:layout_width="30sp"
             android:layout_height="30sp"
             android:layout_marginEnd="16dp"
-            android:contentDescription="Edit_button"
+            android:contentDescription="@string/edit_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"

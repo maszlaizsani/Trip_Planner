@@ -111,6 +111,7 @@ class myDBhelper (context:Context) : SQLiteOpenHelper (context, "DATABASE", null
         db.execSQL(qry)
         db.close()
     }
+
     fun deletePlan(tripname: String){
         val qry= "DELETE FROM TRIPS WHERE tripNAME='$tripname'"
         val db=this.readableDatabase

@@ -7,9 +7,10 @@
     tools:context=".CountdownActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/cntr_background"
         android:layout_width="459dp"
         android:layout_height="897dp"
+        android:contentDescription="@string/backgroundpicture"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,7 +20,7 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/open_sans"
         android:text="@string/countdown"
         android:textColor="@color/white"
@@ -35,6 +36,7 @@
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:contentDescription="@string/back_arrow"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/arrow_back" />

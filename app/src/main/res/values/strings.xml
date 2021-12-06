@@ -36,4 +36,22 @@
     <string name="your_notes">Your notes</string>
     <string name="countdown">Countdown</string>
     <string name="add_reminder">Add reminder</string>
+    <string name="add_to">Add to</string>
+    <string name="stepback">stepback</string>
+    <string name="destination_countries_go_here">Destination countries go here.</string>
+    <string name="calendaricon">calendaricon</string>
+    <string name="backgroundpicture">backgroundpicture</string>
+    <string name="backbutton">backbutton</string>
+    <string name="deletebutton">deletebutton</string>
+    <string name="locationicon">locationicon</string>
+    <string name="_01_01_1970_01_01_1970">01-01-1970 - 01-01-1970</string>
+    <string name="your_notes_go_here">Your notes go here.</string>
+    <string name="background">background</string>
+    <string name="addicon">addicon</string>
+    <string name="saveicon">saveicon</string>
+    <string name="edit_button">Edit_button</string>
+    <string name="add">ADD</string>
+    <string name="todo">TODO</string>
+    <string name="add">ADD</string>
+    <string name="hotelbackground">hotelbackground</string>
 </resources>

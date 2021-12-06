@@ -15,67 +15,70 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:paddingTop="0dp"
             android:paddingBottom="20dp">
-
-            <TextView
-                android:id="@+id/destination"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/open_sans"
-                android:text="@string/destination_countries"
-                android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/date" />
-
-            <TextView
-                android:id="@+id/dateLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/open_sans"
-                android:text="@string/trip_date"
-                android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/date"
                 android:layout_width="wrap_content"
                 android:layout_height="26dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="36dp"
                 android:fontFamily="@font/open_sans"
-                android:text="01-01-1970 - 01-01-1970"
-                android:textSize="20sp"
-                android:textStyle="bold"
+                android:text="@string/_01_01_1970_01_01_1970"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.135"
+                app:layout_constraintStart_toEndOf="@+id/calendar"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/calendar"
+                android:layout_width="36dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:contentDescription="@string/calendaricon"
+                android:fontFamily="@font/open_sans"
+                android:src="@drawable/calendaricon"
+                android:text="@string/trip_date"
+                android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dateLabel" />
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/locationIcon"
+                android:layout_width="36dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="12dp"
+                android:contentDescription="@string/locationicon"
+                android:fontFamily="@font/open_sans"
+                android:src="@drawable/location_dark"
+                android:text="@string/trip_date"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/calendar" />
 
             <TextView
                 android:id="@+id/countries"
-                android:layout_width="match_parent"
-                android:layout_height="43dp"
-                android:layout_marginTop="4dp"
+                android:layout_width="260dp"
+                android:layout_height="29dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/open_sans"
                 android:minHeight="60dp"
-                android:text="Destination countries go here."
-                android:textAlignment="center"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/destination" />
+                android:text="@string/destination_countries_go_here"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@+id/locationIcon"
+                app:layout_constraintTop_toBottomOf="@+id/date" />
 
             <TextView
                 android:id="@+id/cities"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="24dp"
                 android:fontFamily="@font/open_sans"
                 android:text="@string/cities_to_visit"
                 android:textSize="15sp"
@@ -95,7 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/open_sans"
                 android:text="@string/saved_activites"
                 android:textSize="15sp"
@@ -114,7 +117,7 @@
                 android:id="@+id/notesLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/open_sans"
                 android:text="@string/your_notes"
@@ -142,7 +145,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/open_sans"
-                    android:text="Your notes go here."
+                    android:text="@string/your_notes_go_here"
                     android:textAlignment="center"
                     android:textColor="@color/default_blue"
                     android:textSize="15sp"
@@ -157,7 +160,8 @@
     <ImageView
         android:id="@+id/background"
         android:layout_width="394dp"
-        android:layout_height="237dp"
+        android:layout_height="223dp"
+        android:contentDescription="@string/backgroundpicture"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -170,6 +174,7 @@
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:contentDescription="@string/backbutton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/arrow_back" />
@@ -194,6 +199,7 @@
         android:layout_height="33dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
+        android:contentDescription="@string/deletebutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/deleteicon" />

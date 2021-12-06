@@ -28,7 +28,7 @@ class ExploreActivity : AppCompatActivity() {
         mydbhelper =myDBhelper(this)
         showPlaces()
         showActivities()
-        showFlights()
+        showHotels()
 
         //------------------------------------Back button-------------------------------------
         val cancel=findViewById<ImageView>(R.id.cancel)
@@ -47,9 +47,7 @@ class ExploreActivity : AppCompatActivity() {
                 mydbhelper.saveActivity(adding.activity,adding.trip)
                 adding.setDefault()
         }
-
     }
-
     //---------------------------------Recommended places-------------------------------------
 
     private fun showPlaces() {
@@ -58,7 +56,8 @@ class ExploreActivity : AppCompatActivity() {
                 ActivitiesClass("Vancouver", R.drawable.vancouver),
                 ActivitiesClass("Budapest", R.drawable.budapest),
                 ActivitiesClass("Cairo", R.drawable.cairo),
-                ActivitiesClass("New York City", R.drawable.newyork)
+                ActivitiesClass("New York City", R.drawable.newyork),
+                ActivitiesClass("Calgary", R.drawable.calgary)
             )
             val rView = findViewById<RecyclerView>(R.id.placesRecycler)
             rView.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false) as RecyclerView.LayoutManager
@@ -68,12 +67,13 @@ class ExploreActivity : AppCompatActivity() {
 
     private fun showActivities() {
         val activityList = listOf(
-            ActivitiesClass("Go cycling", R.drawable.cycling),
-            ActivitiesClass("Go hiking", R.drawable.hiking),
+            ActivitiesClass("Cycling", R.drawable.cycling),
+            ActivitiesClass("Hiking", R.drawable.hiking),
             ActivitiesClass("Visit a Museum", R.drawable.museum),
-            ActivitiesClass("Go sightseeing", R.drawable.sightseeing),
+            ActivitiesClass("Sightseeing", R.drawable.sightseeing),
             ActivitiesClass("Visit a zoo", R.drawable.zoo),
-            ActivitiesClass("Try a new restaurant", R.drawable.restaurant))
+            ActivitiesClass("Dining out", R.drawable.restaurant),
+            ActivitiesClass("Go camping", R.drawable.camping))
 
         val rView = findViewById<RecyclerView>(R.id.activitiesRecycler)
         rView.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false) as RecyclerView.LayoutManager
@@ -81,11 +81,11 @@ class ExploreActivity : AppCompatActivity() {
     }
     //----------------------------------------Flights----------------------------------------
 
-    private fun showFlights() {
-        val flightList = listOf("BUD-JFK", "BUD-YYZ", "BUD-YHZ","BUD-YEG")
-        val rView = findViewById<RecyclerView>(R.id.flightsRecycler)
+    private fun showHotels() {
+        val hotelList = listOf("Hilton - Toronto", "Hotel Luxor - Cairo", "Boutique Hotel - Budapest","Le Narcisse Blanc Hotel - Paris")
+        val rView = findViewById<RecyclerView>(R.id.hotelsRecycler)
         rView.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false) as RecyclerView.LayoutManager
-        rView.adapter = FlightsRecyclerAdapter(this, flightList)
+        rView.adapter = HotelsRecyclerAdapter(this, hotelList)
     }
 
 }
